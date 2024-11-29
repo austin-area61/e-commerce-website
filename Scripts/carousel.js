@@ -21,4 +21,4 @@ indicators.forEach((indicator, index) => {
 setInterval(() => {
   const nextSlide = (currentSlide + 1) % indicators.length;
   switchSlide(nextSlide);
-}, 5000); // Slide every 5 seconds
+}, 4000); // Slide every 4 seconds
