@@ -1,59 +1,81 @@
-/* Carousel Container */
+/* Carousel Hidden by Default */
+.hidden {
+  display: none;
+}
+
+/* Carousel Active State */
+.carousel.active {
+  display: block;
+}
+
+/* Carousel Styling */
 .carousel {
   position: relative;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+  z-index: 2;
+  display: none; /* Hidden initially */
 }
 
-/* Carousel Items */
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
-  flex: 0 0 100%;
+  min-width: 100%;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* Adjust height as needed */
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: 90%;
+.carousel-item .hero-overlay {
+  width: 80%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Indicators */
+.carousel-item .hero-overlay:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Carousel Indicators */
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  z-index: 3;
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .indicator.active {
-  background-color: #007bff;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.indicator:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
