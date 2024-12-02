@@ -1,24 +1,13 @@
-const carouselInner = document.querySelector(".carousel-inner");
-const indicators = document.querySelectorAll(".indicator");
-let currentSlide = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  // Wait for the fade-out animation to complete
+  setTimeout(() => {
+    const initialOverlay = document.querySelector(".initial-overlay");
+    const carousel = document.querySelector(".carousel");
 
-// Function to switch slides
-function switchSlide(slideIndex) {
-  const offset = slideIndex * -100; // Adjust for 100% width
-  carouselInner.style.transform = `translateX(${offset}%)`;
-  indicators.forEach((indicator, index) => {
-    indicator.classList.toggle("active", index === slideIndex);
-  });
-  currentSlide = slideIndex;
-}
+    // Hide the initial overlay
+    initialOverlay.style.display = "none";
 
-// Add click event to indicators
-indicators.forEach((indicator, index) => {
-  indicator.addEventListener("click", () => switchSlide(index));
+    // Show the carousel
+    carousel.classList.add("active");
+  }, 4000); // Total delay: 3s (animation delay) + 1s (animation duration)
 });
-
-// Auto-slide functionality (optional)
-setInterval(() => {
-  const nextSlide = (currentSlide + 1) % indicators.length;
-  switchSlide(nextSlide);
-}, 4000); // Slide every 4 seconds
